@@ -23,8 +23,11 @@ min(case when 누적합계/총합계 >= 0.8 then rank end) as rank (상위80% �
 select if( a > 1, 1보다큼,1이하임)
 
 DATA as Select A, B, C, D, E, - - from set
+
        select array[A,B,C,A,E,--] from DATA
+       
        select filter(array[A,B,C,A,E,--] x->, x = A) from DATA    = [A,A]
+       
        select cardinality(filter(array[A,B,C,A,E,--] x->, x= A)) from DATA = 2
     
 Json data 

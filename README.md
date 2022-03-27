@@ -10,7 +10,15 @@ You can click the Preview link to take a look at your changes.
 --->
 select row_number () over (partition A order by B desc) from data
 
-select ntile(100) over (partition A order by sales desc from sales_data
+select ntile(100) over (partition A order by sales desc) from sales_data     백분률
+
+select sum(sales) over (partition A order by sales desc) from sales_data      누적합계
+
+select rank() over (partition A order by sales desc) from sales_data        순위
+
+
+min(case when 누적합계/총합계 >= 0.8 then rank end) as rank (상위80% 에 해당하는 최소랭크)
+
 
 select if( a > 1, 1보다큼,1이하임)
 
